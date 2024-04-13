@@ -1,0 +1,55 @@
+<app-nav-dashboard [userId]="user.id"></app-nav-dashboard>
+<div class="flex justify-center items-center">
+	<input type="text"
+	name="name"
+	id="name"
+	[(ngModel)] = "input"
+	placeholder="search task"
+	class="rounded-xl m-5 w-[500px] border-2 border-slate-300 h-9 p-3 cursor-pointer bg-slate-200 shadow-lg focus:outline-none focus:border-white"
+	>
+	<div>
+		<button (click)="getSearchResult(input)" class=" border-2 border-solid border-teal-400 hover:bg-teal-200 h-9 px-5 shadow-lg rounded-xl flex justify-center items-center">
+			search</button>
+	</div>
+	
+</div>
+
+<div class="mx-5 font[Poppins] w-auto">
+	<select class="w-[490px] border-2 border-black bg-slate-300 h-11 p-2 cursor-pointer" [(ngModel)] = "selectedValue" >
+		<option value="TODO">TODO</option>
+		<option value="INPROGRESS">INPROGRESS</option>
+		<option value="COMPLETED">COMPLETED</option>
+	</select>
+	<button (click)="getStatus(selectedValue)" class=" border-2 border-solid bg-slate-300 hover:bg-amber-200 px-9 py-2 shadow-md">Filter</button>
+	<button (click)="getPriority()" class=" border-2 border-solid bg-slate-300 hover:bg-amber-200 px-9 py-2 shadow-md">Order</button>
+</div>
+<div class="flex justify-center items-center">
+
+
+<table class="p-5 mx-5 shadow-2xl  border-orange-200 w-[1500px] border-solid">
+	<thead class="text-slate-900">
+		<tr class="">
+			<th class="py-3  bg-blue-600">id</th>
+			<th class="py-3  bg-blue-600">Taskname</th>
+			<th class="py-3  bg-blue-600">deadline</th>
+			<th class="py-3  bg-blue-600">priority</th>
+			<th class="py-3  bg-blue-600">status</th>
+			<th class="py-3  bg-blue-600">actions</th>
+		</tr>
+	</thead>
+	<tbody class="text-slate-900 text-center rounded-xl">
+		<tr *ngFor="let task of tasks" class="bg-blue-300 hover:bg-blue-100 cursor-pointer duration-300">
+			<td class="py-3 px-6">{{task.id}}</td>
+			<td class="py-3 px-6">{{task.taskname}}</td>
+			<td class="py-3 px-6">{{task.deadline}}</td>
+			<td class="py-3 px-6">{{task.priority}}</td>
+			<td class="py-3 px-6">{{task.status}}</td>
+			<td class="py-3 px-6">
+				<button routerLink="/view-task/{{task.id}}" class="w-24 h-10 bg-sky-500 mx-4 rounded-xl shadow-2xl transition-all hover:bg-sky-300 delay-150">view Task</button>
+				<button routerLink="/update-task/{{task.id}}" class="w-24 h-10 bg-amber-500 mx-4 rounded-xl shadow-2xl transition-all hover:bg-amber-300 delay-150">update</button>
+				<button (click)="deleteUserTask(task.id)" class="w-24 h-10 bg-red-500 mx-4 rounded-xl shadow-2xl transition-all hover:bg-red-300 delay-150">delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>

@@ -1,0 +1,22 @@
+<nav class="bg-slate-900 p-3 text-white ">
+	<div class="">
+		<section class="flex justify-between max-w-7xl h-20 mt-5">
+		<div><h1 class="text-2xl  font-semibold font-mono m-4">Task-management-app</h1></div>
+		<div class="justify-end flex m-4">
+			<a routerLink="/dashboard/{{userId}}" class="px-3 text-xl transition-all delay-150 duration-100 hover:text-sky-400" href="">Dashboard</a>
+			<div class="relative">
+			<a (click)="isOpen = !isOpen" class="px-3 text-xl cursor-pointer transition-all delay-150 duration-100 hover:text-sky-400" >User</a>
+			<button *ngIf="isOpen" (click)="isOpen = false" tabindex="-1" class="fixed inset-0 w-full h-full cursor-default"></button>
+			<div *ngIf="isOpen" class="bg-yellow-500 rounded-md py-2 shadow-md absolute w-48 mt-4 bg-opacity-30 backdrop-blur-sm ease-in-out duration-100">
+				<a routerLink="/user/{{userId}}" class = "block px-4 py-2 hover:bg-yellow-400 hover:text-slate-100 ">View profile</a>
+				<a routerLink="/edit-user/{{userId}}" href="" class = "block px-4 py-2 hover:bg-yellow-400 hover:text-slate-100">Update profile</a>
+				<a (click)="userLogout()"  class = "block px-4 py-2 hover:bg-yellow-400 hover:text-slate-100">Log-out</a>
+			</div>
+			</div>
+			
+			<a (click)="gotoUserTasks(userId)" class="px-3 text-xl transition-all delay-150 duration-100 hover:text-sky-400 cursor-pointer" >Tasks</a>
+			<a (click)="gotoUserProjects(userId)" class="px-3 text-xl transition-all delay-150 duration-100 hover:text-sky-400 cursor-pointer" >Projects</a>
+		</div>
+	</section>
+</div>	
+</nav>

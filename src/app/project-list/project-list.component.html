@@ -1,0 +1,35 @@
+ <app-nav-dashboard></app-nav-dashboard>
+<div>
+	<div class="flex justify-center items-center">
+		<input type="text"
+		name="name"
+		id="name"
+		[(ngModel)] = "input"
+		placeholder="search task"
+		class="rounded-xl m-5 w-[500px] border-2 border-slate-300 h-9 p-3 cursor-pointer bg-slate-200 shadow-lg focus:outline-none focus:border-white"
+		>
+		<div>
+			<button (click)="searchProject(input)" class=" border-2 border-solid border-orange-400 hover:bg-orange-200 h-9 px-5 shadow-lg rounded-xl flex justify-center items-center">
+				search</button>
+		</div>
+		
+	</div>
+	<table class="p-5 mx-5 shadow-2xl font-[Poppins] border-orange-200 w-6/12 border-solid">
+		<thead class="text-white">
+			<tr>
+				<th class="py-3 bg-orange-800">id</th>
+				<th class="py-3  bg-orange-800">name</th>
+				<th class="py-3  bg-orange-800">description</th>
+				<th class="py-3  bg-orange-800">deadline</th>
+			</tr>
+		</thead>
+		<tbody class="text-orange-900 text-center">
+			<tr *ngFor="let project of projects" class="bg-orange-300 hover:bg-orange-100 cursor-pointer duration-300">
+				<td class="py-3 px-6">{{project.id}}</td>
+				<td class="py-3 px-6">{{project.projectname}}</td>
+				<td class="py-3 px-6">{{project.description}}</td>
+				<td class="py-3 px-6">{{project.deadline}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

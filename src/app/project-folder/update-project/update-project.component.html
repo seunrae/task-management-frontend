@@ -1,0 +1,44 @@
+<app-nav-dashboard [userId]="userId"></app-nav-dashboard>
+<div class=" w-[600px] border-dashed border-2 p-5 m-8 bg-white shadow-2xl border-slate-400">
+	<form (ngSubmit)= "onSubmit()">
+	<div><h3 class="font-semibold text-2xl">Update Project</h3></div>
+	<div class="p-5 ">
+		<div class="my-3">
+			<label class="block" for="projectname">Name</label>
+			<input type="text"
+			name="projectname"
+			id="projectname"
+			placeholder="name"
+			[(ngModel)] = "project.projectname"
+			class="rounded-md w-[500px] border-2 border-sky-400 h-9 p-3 cursor-pointer"
+			>
+		</div>
+		<div class="my-3">
+			<label class="block" for="description">Description</label>
+			<input type="text"
+			name="description"
+			id="description"
+			placeholder="description"
+			[(ngModel)] = "project.description"
+			class="rounded-md w-[500px] border-2 border-sky-400 h-9 p-3 cursor-pointer"
+			>
+		</div>
+		<div class="my-3">
+			<label class="block" for="deadline">Deadline</label>
+			<input type="date"
+			name="deadline"
+			id="deadline"
+			placeholder="deadline"
+			[(ngModel)] = "project.deadline"
+			class="rounded-md w-[500px] border-2 border-sky-400 h-9 p-3 cursor-pointer"
+			>
+		</div>	
+		<div class="mt-8 flex justify-start">
+			<button  class=" border-2 border-solid border-teal-400 hover:bg-teal-200 px-9 py-2 shadow-md" type="submit">submit</button>
+			<button (click)="gotoDashboard()" class=" border-2 border-solid border-orange-400 hover:bg-orange-200 px-9 py-2 shadow-md mx-4" type="submit">Back</button>
+		</div>	
+	</div>
+</form>	
+</div>
+
+

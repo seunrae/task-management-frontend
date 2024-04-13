@@ -1,0 +1,45 @@
+<app-nav-dashboard [userId]="userId"></app-nav-dashboard>
+<div class="container mx-auto h-auto bg-sky-200 m-5 shadow-md rounded-md">
+	<div class="p-5 text-center text-3xl font-bold">
+		<h1>Project Details</h1>
+	</div>
+	<div class="flex justify-center">
+		<hr class="w-[800px] font-black border-b border-slate-400">
+	</div>
+	<div class="p-5 text-2xl">
+	<div class=" my-3">
+		<span class="font-semibold"> Name: </span>
+		<span>{{project.projectname}}</span>
+	</div>
+	<div class=" my-3">
+		<span class="font-semibold">Description: </span>
+		<span>{{project.description}}</span>
+	</div>
+	<div class=" my-3">
+		<span class="font-semibold">Deadline: </span>
+		<span>{{project.deadline}}</span>
+	</div>
+	<div class=" mt-6 flex justify-between">
+		<button (click)="gotoEditProject()" class="px-9 py-2 bg-green-400 rounded-md shadow-md hover:bg-green-200 ">Edit</button>
+		<button routerLink="/user-project-list/{{userId}}" class="px-9 py-2 mx-4 bg-orange-400 rounded-md shadow-md hover:bg-orange-200">Back</button>
+		<button (click)="addTask()" class="px-9 py-2 mx-4 bg-blue-400 rounded-md shadow-md hover:bg-blue-200">Add task to project</button>
+		<button (click)="deleteProject()" class="px-9 py-2 mx-4 bg-red-400 rounded-md shadow-md hover:bg-red-200">Delete project</button>
+	</div>
+    </div>
+	<div class="flex justify-center">
+		<hr class="w-[800px] font-black border-b border-slate-400">
+	</div>
+	<section class="m-5">
+		<h3 class="font-bold text-center text-2xl">Tasks</h3>
+		<ul *ngFor="let task of project.projectTasks" class="flex justify-start pb-5">
+			<li>-</li>
+			<li class="mx-5">{{task.taskname}}</li>
+			<li class="mx-5">{{task.deadline}}</li>
+			<li class="mx-5">{{task.priority}}</li>
+			<li class="mx-5">{{task.status}}</li>
+		</ul>
+	</section>
+
+</div>
+
+
